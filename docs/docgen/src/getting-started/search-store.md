@@ -1,10 +1,10 @@
 ---
 title: Search store
-mainTitle: Getting started
+mainTitle: Essentials
 layout: main.pug
 category: Getting started
 withHeadings: true
-navWeight: 100
+navWeight: 5
 editable: true
 githubSource: docs/docgen/src/getting-started/search-store.md
 ---
@@ -19,7 +19,7 @@ The search store of Vue InstantSearch allows you to:
 
 Before going further, it is important to realize that directly interacting with the search store is not mandatory but an advanced use of Vue InstantSearch.
 
-If you use [provided components](using-components.md), wrapped into an [Index](./components/index.md) component, then search stores are created and used automatically by components.
+If you use [provided components](getting-started/using-components.html), wrapped into an [Index](components/index.html) component, then search stores are created and used automatically by components.
 
 In that case, it is the responsibility of the `Index` component to make sure a search store is successfully made available to child components.
 
@@ -31,8 +31,8 @@ There are many reasons to manually create search stores, here are some of them:
 
 - A search component is [not wrapped into an Index component](components.md#manually-inject-the-search-store-into-components)
 - You want to watch search store parameters or results to affect other parts of the application
-- You want to do [render the initial application vue on the server side](server-side-rendering.md)
-- You are [developing a custom component](custom-components.md)
+- You want to do [render the initial application vue on the server side](advanced/server-side-rendering.html)
+- You are [developing a custom component](getting-started/custom-components.html)
 
 ## How to manually create a search store
 
@@ -44,7 +44,7 @@ The easiest way to create a search store, is by using the `createFromAlgoliaCred
 
 **Security notice: Make sure you always use search only API keys. Using the Admin API key in a frontend application would let any user have full control over your Algolia application.**
 
-```js
+```javascript
 import { createFromAlgoliaCredentials } from 'vue-instantsearch';
 
 const searchStore = createFromAlgoliaCredentials('appId', 'apiKey');
@@ -56,7 +56,7 @@ The Algolia Client is the [official JavaScript API Client](https://github.com/al
 
 If you are already a user of Algolia, and have an existing application using the Algolia client, you could re-use an existing instance of that API client like so:
 
-```js
+```javascript
 import algoliaClient from 'algoliasearch';
 import { createFromAlgoliaClient } from 'vue-instantsearch';
 
@@ -72,7 +72,7 @@ The [Algolia helper](https://github.com/algolia/algoliasearch-helper-js) is a Ja
 
 As for the Algolia client, if you do not have an existing Algolia helper in your application, there should be no reason for you to instantiate the search store like showcased below.
 
-```js
+```javascript
 import algoliaClient from 'algoliasearch';
 import algoliaHelper from 'algoliasearch-helper';
 import { Store } from 'vue-instantsearch';
@@ -88,9 +88,9 @@ The search store has a method `serialize()` that returns a plain JavaScript obje
 
 This object can later be used to re-construct the search store and put it in the state it was the moment it was serialized.
 
-This is especially useful when [implementing server side rendering](server-side-rendering.md), where you need to share the backend store state with your frontend.
+This is especially useful when [implementing server side rendering](advanced/server-side-rendering.html), where you need to share the backend store state with your frontend.
 
-```js
+```javascript
 import { createFromAlgoliaCredentials, createFromSerialized } from 'vue-instantsearch';
 
 const searchStore = createFromAlgoliaCredentials('appId', 'apiKey');
@@ -104,7 +104,7 @@ const reconstructedSearchStore = createFromSerialized(serializedData);
 Every time the state of the store is mutated, it will produce a new call to the Algolia API.
 The moment the response comes back, the state is updated and all components observing the results will be able to re-render if needed.
 
-```js
+```javascript
 const store = /* Existing Store instance */;
 store.page = 3;
 // Triggers a call to Algolia with page set to 3.
@@ -122,7 +122,7 @@ Here are some examples where you want to "batch" mutations, and only trigger a c
 
 To allow you to control what calls are being made to Algolia, you can `stop` the store, and `start` it once you want it to become reactive to change again.
 
-```js
+```javascript
 // ...
 const store = /* Existing store instance */;
 
@@ -137,9 +137,9 @@ store.start();
 
 In this example, even if the state is mutated several times, only one call to Algolia will be made after the Store is resumed by the `start()` call.
 
-**Important: When you manually create a search store, it is stopped by default. You need to manually call `start()` to trigger the first call. This gives you full control over the initial state of the store before the first call to Algolia is sent.**
+**Important:** When you manually create a search store, it is stopped by default. You need to manually call `start()` to trigger the first call. This gives you full control over the initial state of the store before the first call to Algolia is sent.
 
-```js
+```javascript
 import { createFromAlgoliaCredentials } from 'vue-instantsearch';
 
 const store = createFromAlgoliaCredentials('appId', 'search_apiKey');
