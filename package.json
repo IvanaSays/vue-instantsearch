@@ -1,12 +1,13 @@
 {
-  "name": "vue-instantsearch",
+  "name": "react-instantsearch",
   "author": {
     "name": "Algolia, Inc.",
     "url": "https://www.algolia.com"
   },
-  "description": "👀 Lightning-fast Algolia search for Vue apps",
+  "description": "⚡ Lightning-fast search for React and React Native apps",
   "keywords": [
-    "vue",
+    "react",
+    "react-native";
     "algolia",
     "search",
     "instantsearch",

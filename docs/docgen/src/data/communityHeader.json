@@ -25,10 +25,10 @@
         "backgroundColor": "linear-gradient(112deg, #21c7d0, #2dde98)"
       },
       {
-        "name": "Helper.js",
-        "url": "https://community.algolia.com/algoliasearch-helper-js/",
-        "logo": "https://community.algolia.com/img/logo-helper.svg",
-        "backgroundColor": "#FDBD57"
+        "name": "Vue InstantSearch",
+        "url": "https://community.algolia.com/vue-instantsearch/",
+        "logo": "http://res.cloudinary.com/hilnmyskv/image/upload/v1500619122/instantsearch-icon_white.svg",
+        "backgroundColor": "linear-gradient(to right, #4DBA87, #2F9088)"
       },
       {
         "name": "Wordpress",
@@ -39,10 +39,10 @@
     },
     "project": {
       "view": "links",
-      "label": "Vue InstantSearch",
+      "label": "React InstantSearch",
       "logo": "",
       "caret": "",
-      "url":"https://community.algolia.com/vue-instantsearch/",
+      "url":"https://community.algolia.com/react-instantsearch/",
       "dropdownItems": []
     }
   },

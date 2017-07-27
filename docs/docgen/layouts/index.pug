@@ -6,15 +6,28 @@ block content
       .col-md-12.z-10.text-center.pos-rel.screen-mockup.m-t-n-large
         .spacer120.visible-lg.visible-md.visible-sm
         .spacer32
-        img.m-t-n-large.img-responsive.pos-rel.m-l-r-auto(src="assets/img/mockup-vue-instantsearch.png", width="800", alt="Demo vue-instantsearch")
+        img.m-t-n-large.img-responsive.pos-rel.m-l-r-auto(src="https://community.algolia.com/react-instantsearch/images/Mockup-533a67b537bda2d4514c5eef95315855.png", width="620", alt="Demo vue-instantsearch")
         .spacer32
-        .spacer120.visible-sm
-        .row.m600.text-center.m-l-r-auto
-          h3.no-p-t.m-t-none.text-thin Declarative
-          .spacer16.visible-sm
-          .spacer24
-          p.color-logan.text-regular.text-normal Create beautiful search experiences with customizable UI components. You simply specify props on your UI components and InstantSearch takes care of the rest.
 
+  section.row.fill-white.p-xlarge.m-l-none.m-r-none.pos-rel
+    .container
+      .col-md-6.hidden-sm
+        img.section-illustration(src="https://community.algolia.com/react-instantsearch/images/components-b92d9785c655c862a54c3b4a7428ce16.png", alt="InstantSearch components", width="525", height="254.67")
+      .col-md-6.p-l-xlarge
+        header
+          h3.no-p-t.m-t-none Built with design in mind
+        .spacer16.visible-sm
+        img.section-illustration.visible-sm(src="assets/img/instantsearch-components.svg", alt="InstantSearch components", width="525", height="254.67")
+        .spacer24
+        p.color-logan.text-regular.text-normal Our search widgets feature slick design by default and benefit from our experience building thousands of search interfaces.
+
+        .spacer24
+        a.btn.btn-static-theme.b-n.elevation0(href="widgets.html", title="instantSearch.js widgets").
+          Discover widgets
+          <svg> <use xlink:href="#arrow-right"></svg>
+
+    .inline.spacer80
+    .inline.spacer120
 
   section.row.fill-titan.p-xlarge.m-l-none.m-r-none.pos-rel.section-infinite-possibilities
     .container
@@ -22,19 +35,46 @@ block content
       .col-md-12.z-10
         .col-md-6.p-r-xlarge
           header
-            h3.no-p-t.m-t-none.text-thin Infinite possibilities
+            h3.no-p-t.m-t-none.text-thin Intuitive API
           .spacer16.visible-sm
           img.section-illustration.visible-sm(src="assets/img/infinite-components.svg", alt="Illustration infinite-possibilities", width="525")
           .spacer24
-          p.color-logan.text-regular.text-normal Build the ideal search experience you’ve imagined for your users by customizing our existing widgets or building your own.
+          p.color-logan.text-regular.text-normal We crunched feedback from hundreds of users of instantsearch.js into building React InstantSearch API.
           .spacer24
           a.btn.btn-static-theme.b-n.elevation0(href="examples/bootstrap.html", title="instantSearch.js examples").
-            Learn more
+            Read the guide
             <svg><use xlink:href="#arrow-right"></svg>
 
-        .col-md-6.hidden-sm
-          img.section-illustration(src="assets/img/infinite-components.svg", alt="Illustration infinite-possibilities", width="525")
+        .col-md-6.hidden-sm.
+            <pre class="al-snippet p-large" data-snippet-theme="dark"><code><span class="sn-keyword">const</span> SearchBox <span class="sn-keyword">=</span> connectSearchBox(
+              ({query, refine}) <span class="sn-keyword">=&gt;</span>
+                <span class="sn-keyword">&lt;</span>div className<span class="sn-keyword">=</span><span class="sn-string">"searchbox-container"</span><span class="sn-keyword">&gt;</span>
+                  <span class="sn-keyword">&lt;</span>div className<span class="sn-keyword">=</span><span class="sn-string">"input-group"</span><span class="sn-keyword">&gt;</span>
+                    <span class="sn-keyword">&lt;</span>input type<span class="sn-keyword">=</span><span class="sn-string">"text"</span>
+                           <span class="sn-variable">value</span><span class="sn-keyword">=</span>{query}
+                           <span class="sn-variable">onChange</span><span class="sn-keyword">=</span>{e <span class="sn-keyword">=&gt;</span> refine(e.<span class="sn-variable">target</span>.<span class="sn-variable">value</span>)}
+                           className<span class="sn-keyword">=</span><span class="sn-string">"form-control"</span>/<span class="sn-keyword">&gt;</span>
 
+                    <span class="sn-keyword">&lt;</span>span className<span class="sn-keyword">=</span><span class="sn-string">"input-group-btn"</span><span class="sn-keyword">&gt;</span>
+                      <span class="sn-keyword">&lt;</span>button className<span class="sn-keyword">=</span><span class="sn-string">"btn btn-default"</span><span class="sn-keyword">&gt;</span><span class="sn-keyword">&lt;</span>i className<span class="sn-keyword">=</span><span class="sn-string">"fa fa-search"</span><span class="sn-keyword">&gt;</span><span class="sn-keyword">&lt;</span>/i&gt;<span class="sn-keyword">&lt;</span>/button<span class="sn-keyword">&gt;</span>
+                    <span class="sn-keyword">&lt;</span>/span<span class="sn-keyword">&gt;</span>
+                  <span class="sn-keyword">&lt;</span>/div<span class="sn-keyword">&gt;</span>
+                <span class="sn-keyword">&lt;</span>/div<span class="sn-keyword">&gt;</span>
+            );
+
+            <span class="sn-keyword">const</span> RefinementListLinks <span class="sn-keyword">=</span> connectRefinementList(({items, refine, createURL}) <span class="sn-keyword">=&gt;</span> {
+              <span class="sn-keyword">const</span> itemComponents <span class="sn-keyword">=</span> items.map(item <span class="sn-keyword">=&gt;</span>
+                <span class="sn-keyword">&lt;</span>div className<span class="sn-keyword">=</span>{item.isRefined ? <span class="sn-string">' active'</span> : <span class="sn-string">''</span>} key<span class="sn-keyword">=</span>{item.label}<span class="sn-keyword">&gt;</span>
+                  <span class="sn-keyword">&lt;</span>a className<span class="sn-keyword">=</span><span class="sn-string">"item"</span> href<span class="sn-keyword">=</span>{createURL(item.<span class="sn-variable">value</span>)} <span class="sn-variable">onClick</span><span class="sn-keyword">=</span>{e <span class="sn-keyword">=&gt;</span> {
+                    e.preventDefault();
+                    refine(item.<span class="sn-variable">value</span>);
+                  }}<span class="sn-keyword">&gt;</span>
+                    <span class="sn-keyword">&lt;</span>span<span class="sn-keyword">&gt;</span> {item.label}<span class="sn-keyword">&lt;</span>/span<span class="sn-keyword">&gt;</span>
+                    <span class="sn-keyword">&lt;</span>span className<span class="sn-keyword">=</span><span class="sn-string">"badge pull-right"</span><span class="sn-keyword">&gt;</span>{item.count}<span class="sn-keyword">&lt;</span>/span<span class="sn-keyword">&gt;</span>
+                  <span class="sn-keyword">&lt;</span>/a<span class="sn-keyword">&gt;</span>
+                <span class="sn-keyword">&lt;</span>/div<span class="sn-keyword">&gt;</span>
+              );
+            </code></pre>
       .inline.spacer80
       .inline.spacer40
       .inline.spacer40.hidden-sm
@@ -45,13 +85,29 @@ block content
       .inline.spacer40.hidden-sm
       .col-md-12.z-10
         .col-md-6.p-r-xlarge
-          img.section-illustration(src="assets/img/server-side-rendering.svg", alt="Illustration Server size rendering", width="380")
+          img.section-illustration.phone_illustration(src="assets/img/react-mobile.svg", alt="Illustration Server size rendering")
+          img.section-illustration.computer_illustration(src="assets/img/react-laptop.svg", alt="Illustration Server size rendering")
+
+          ul.subtle-check-list
+            li.pos-rel
+              | react-native
+              svg.inline.z-10
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#check-icon')
+            li.pos-rel
+              | react-ui*
+              svg.inline.z-10
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#check-icon')
+            li.pos-rel
+              | react-router
+              svg.inline.z-10
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#check-icon')
+
         .col-md-6
           .spacer64
           header
-            h3.no-p-t.m-t-none.text-thin Server Side Rendering
+            h3.no-p-t.m-t-none.text-thin React-community ready
           .spacer24
-          p.color-logan.text-regular.text-normal Fully integrate your search with your server side rendering setup.
+          p.color-logan.text-regular.text-normal Connectors provide a way to plug any existing code or React library to React InstantSearch and Algolia.
 
           .spacer24
           a.btn.btn-static-theme.b-n.elevation0(href="advanced/server-side-rendering.html", title="Get started with server-side rendering").
@@ -61,25 +117,63 @@ block content
       .inline.spacer40.hidden-sm
       .inline.spacer120
 
-  section.row.fill-titan.p-xlarge.start-section.m-l-none.m-r-none.pos-rel
-    .container
-      .inline.spacer40
-      .inline.spacer40.hidden-sm
-      .col-md-12.z-10.text-center.row
-        header
-          h3.no-p-t.m-t-none.text-thin Get started
-        .spacer40
-        .row.h300
-          p.color-logan.text-regular.text-normal Seamlessly build search experiences into your Vue applications.
+  section.row.fill-titan.p-xlarge.m-l-none.m-r-none.pos-rel.section-live
+    .col-md-12
+      .spacer40
+      header.text-center.m100p.p-large
+        h3.no-p-t.m-t-none.text-thin See it live
+      .container
+        ul.flex-container.flex-dir-row.list-none.text-center
+          li.flex-it-3.p-large
+            .p-large.fill-white.elevation1.h300.flex-container.flex-dir-col.flex-align-center
+              a(href='examples/e-commerce')
+                .tile-container
+                  figure
+                    img.w100(src='images/e-commerce.svg')
+                  h3.item-title E-commerce
+                  span.light-link See it live >
+          li.flex-it-3.p-large
+            .p-large.fill-white.elevation1.h300.flex-container.flex-dir-col.flex-align-center
+              a(href='examples/e-commerce-infinite')
+                .tile-container
+                  figure
+                    img.w100(src='images/e-commerce-infinite.svg')
+                  h3.item-title E-commerce & Infinite Hits
+                  span.light-link See it live >
+          li.flex-it-3.p-large
+            .p-large.fill-white.elevation1.h300.flex-container.flex-dir-col.flex-align-center
+              a(href='examples/material-ui')
+                .tile-container
+                  figure
+                    img.w100(src='images/material.svg')
+                  h3.item-title Material UI
+                  span.light-link See it live >
+          li.flex-it-3.p-large
+            .p-large.fill-white.elevation1.h300.flex-container.flex-dir-col.flex-align-center
+              a(href='examples/media')
+                .tile-container
+                  figure
+                    img.w100(src='images/media.svg')
+                  h3.item-title Media
+                  span.light-link See it live >
+          li.flex-it-3.p-large
+            .p-large.fill-white.elevation1.h300.flex-container.flex-dir-col.flex-align-center
+              a(href='examples/tourism')
+                .tile-container
+                  figure
+                    img.w100(src='images/tourism.svg')
+                  h3.item-title Tourism
+                  span.light-link See it live >
+          li.flex-it-3.p-large
+            .p-large.fill-white.elevation1.h300.flex-container.flex-dir-col.flex-align-center
+              .tile-container
+                figure
+                  img.w100(src='images/more-icon.svg')
+                h3.item-title More to come
 
 
-          .spacer32
-          a.btn.btn-static-theme.elevation0(href="getting-started/getting-started.html").
-            Get started
-            <svg> <use xlink:href="#arrow-right"></svg>
-
-
-      .inline.spacer40.hidden-sm
+        .inline.spacer32
+        .inline.spacer40.hidden-sm
 
   section.row.fill-white.p-xlarge.discover-section.m-l-none.m-r-none.pos-rel
     .container
@@ -119,22 +213,28 @@ block content
 
         .spacer40.inline
         .row.desktop-projects
-          .col-md-10.p-b-large.col-md-offset-2
+          .col-md-10.p-b-large
             div.heading.w100p.text-left.m-l-large
               small.color-logan InstantSearch for web
-          .col-md-8.col-md-offset-2
-            .col-md-6
+          .col-md-12
+            .col-md-4
               .card.fill-white.elevation1.radius6.p-large.h100.text-left
                 a(href="https://community.algolia.com/instantsearch.js/v2")
                   figure
                     img(src="assets/img/InstantSearch-JavaScript.svg", alt="Logo InstantSearch Javascript")
                     figcaption InstantSearch for Javascript
-            .col-md-6
+            .col-md-4
               .card.fill-white.elevation1.radius6.p-large.h100.text-left
                 a(href="https://community.algolia.com/instantsearch.js/react/")
                   figure
                     img(src="assets/img/InstantSearch-React.svg", alt="Logo InstantSearch React")
                     figcaption InstantSearch for React
+            .col-md-4
+              .card.fill-white.elevation1.radius6.p-large.h100.text-left
+                a(href="https://community.algolia.com/instantsearch.js/react/")
+                  figure
+                    img(src="assets/img/InstantSearch-Vue.svg", alt="Logo InstantSearch Vue")
+                    figcaption InstantSearch for Vue.js
           //- .col-md-4
           //-   .card.fill-white.elevation1.radius6.p-large.h100.text-left
           //-     a(href="#")
